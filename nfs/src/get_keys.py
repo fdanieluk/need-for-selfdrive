@@ -38,21 +38,20 @@ def keys_to_output(keys):
     output = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 
     if 'W' in keys and 'A' in keys:
-        output = wa
+        return wa, 'wa'
     elif 'W' in keys and 'D' in keys:
-        output = wd
-    elif 'S' in keys and 'A' in keys:
-        output = sa
-    elif 'S' in keys and 'D' in keys:
-        output = sd
+        return wd, 'wd'
+    # elif 'S' in keys and 'A' in keys:
+    #     return sa, 'sa'
+    # elif 'S' in keys and 'D' in keys:
+    #     return sd, 'sd'
     elif 'W' in keys:
-        output = w
-    elif 'S' in keys:
-        output = s
+        return w, 'w'
+    # elif 'S' in keys:
+    #     return s, 's'
     elif 'A' in keys:
-        output = a
+        return wa, 'wa'
     elif 'D' in keys:
-        output = d
+        return wd, 'wd'
     else:
-        output = nk
-    return output
+        return nk, 'nk'
