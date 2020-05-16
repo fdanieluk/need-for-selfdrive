@@ -1,31 +1,20 @@
-"""
-"""
 # Citation: Box Of Hats (https://github.com/Box-Of-Hats )
 
 import win32api as wapi
 
 
-keyList = ["\b"]
-for char in "ABCDEFGHIJKLMNOPQRSTUVWXYZ 123456789,.'£$/\\":
-    keyList.append(char)
+def key_check(show_keys=False):
+    keyList = ["\b"]
+    for char in "ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890,.'£$/\\":
+        keyList.append(char)
 
-
-w = [1,0,0,0,0,0,0,0,0]
-s = [0,1,0,0,0,0,0,0,0]
-a = [0,0,1,0,0,0,0,0,0]
-d = [0,0,0,1,0,0,0,0,0]
-wa = [0,0,0,0,1,0,0,0,0]
-wd = [0,0,0,0,0,1,0,0,0]
-sa = [0,0,0,0,0,0,1,0,0]
-sd = [0,0,0,0,0,0,0,1,0]
-nk = [0,0,0,0,0,0,0,0,1]
-
-
-def key_check():
     keys = []
     for key in keyList:
         if wapi.GetAsyncKeyState(ord(key)):
             keys.append(key)
+
+    if show_keys():
+        print(keys)
     return keys
 
 
@@ -36,6 +25,16 @@ def keys_to_output(keys):
     [W, S, A, D, WA, WD, SA, SD, NOKEY] boolean values.
     '''
     output = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    # w = [1,0,0,0,0,0,0,0,0]
+    # s = [0,1,0,0,0,0,0,0,0]
+    # a = [0,0,1,0,0,0,0,0,0]
+    # d = [0,0,0,1,0,0,0,0,0]
+    # wa = [0,0,0,0,1,0,0,0,0]
+    # wd = [0,0,0,0,0,1,0,0,0]
+    # sa = [0,0,0,0,0,0,1,0,0]
+    # sd = [0,0,0,0,0,0,0,1,0]
+    # nk = [0,0,0,0,0,0,0,0,1]
+
 
     if 'W' in keys and 'A' in keys:
         return wa, 'wa'
