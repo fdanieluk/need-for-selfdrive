@@ -29,20 +29,14 @@ def main():
     learn.model.training = False
 
     sleep(1)  # to clean last keys from memory
+
     paused = True
 
     while(True):
         keys = key_check()
+        paused = check_pause(paused)
 
-        # if 'T' in keys:  # press T to start recording
-        #     if paused:
-        #         paused = False
-        #         print('Unpaused!')
-        #     else:
-        #         print('Paused!')
-        #         paused = True
-        #
-        #     sleep(1)
+
 
         if not paused:
             scr = grab_screen()
